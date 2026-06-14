@@ -1,0 +1,350 @@
+html,
+body,
+#app,
+.taro_router,
+.taro_page,
+.taro-app-wrap {
+  width: 100%;
+  min-height: 100%;
+}
+
+.taro-compat-button {
+  appearance: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mini-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.mini-icon-chat,
+.mini-icon-user {
+  border: 2px solid currentColor;
+  border-radius: 9999px;
+  color: transparent;
+}
+
+.mini-icon-home {
+  font-size: 0;
+  border: 2px solid currentColor;
+  border-radius: 4px 4px 3px 3px;
+  transform: rotate(45deg) scale(0.76);
+}
+
+.mini-icon-learn {
+  font-size: 0;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+
+.mini-icon-chevronRight {
+  font-weight: 300;
+}
+
+.chat-quick-questions {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 11px 10px 0;
+  white-space: nowrap;
+}
+
+.chat-quick-question-chip {
+  flex: 0 0 auto;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  background: #fff;
+  color: #5f6673;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+}
+
+.chat-quick-question-chip:active {
+  border-color: #2d5af5;
+  color: #2d5af5;
+  background: #f8fbff;
+}
+
+.chat-quick-question-text {
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.md-content {
+  width: 100%;
+  color: inherit;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.md-heading {
+  margin: 12px 0 6px;
+  color: #1f2937;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.md-heading:first-child {
+  margin-top: 0;
+}
+
+.md-heading-1,
+.md-heading-2 {
+  font-size: 15px;
+}
+
+.md-heading-3,
+.md-heading-4 {
+  font-size: 14px;
+}
+
+.md-paragraph,
+.md-blockquote,
+.md-list,
+.md-code-block {
+  margin: 0 0 8px;
+}
+
+.md-paragraph:last-child,
+.md-blockquote:last-child,
+.md-list:last-child,
+.md-code-block:last-child {
+  margin-bottom: 0;
+}
+
+.md-paragraph {
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.md-strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+.md-em {
+  font-style: italic;
+}
+
+.md-inline-code {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #1f2937;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.92em;
+}
+
+.md-link {
+  color: #2d5af5;
+}
+
+.md-blockquote {
+  padding-left: 10px;
+  border-left: 3px solid #d7defe;
+  color: #4b5563;
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.md-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.md-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.7;
+}
+
+.md-list-marker {
+  flex: 0 0 auto;
+  min-width: 16px;
+  color: #64748b;
+  text-align: right;
+}
+
+.md-list-text {
+  flex: 1;
+  min-width: 0;
+  white-space: pre-wrap;
+}
+
+.md-code-block {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #1f2937;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+taro-image-core {
+  display: block;
+  line-height: 0;
+  overflow: hidden;
+}
+
+taro-image-core img,
+taro-image-core .taro-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+taro-text-core {
+  display: inline;
+  line-height: inherit;
+}
+
+/* Custom scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Remove transitions from elements that shouldn't have them */
+input, textarea, button, taro-input-core, taro-textarea-core {
+  transition: all 0.15s ease;
+}
+
+/* Mobile-safe bottom padding */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Custom focus ring */
+input:focus, textarea:focus, select:focus, taro-input-core:focus, taro-textarea-core:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(45, 90, 245, 0.2);
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.weapp-text-scale {
+  font-size: 0.9375rem;
+}
+
+.weapp-text-scale .twx-text-_5b_10px_5d_,
+.weapp-text-scale .text-\[10px\] {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.weapp-text-scale .twx-text-xs,
+.weapp-text-scale .text-xs {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.weapp-text-scale .twx-text-sm,
+.weapp-text-scale .text-sm {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.weapp-text-scale .twx-text-base,
+.weapp-text-scale .text-base {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.weapp-text-scale .twx-text-lg,
+.weapp-text-scale .text-lg {
+  font-size: 1.1875rem;
+  line-height: 1.4;
+}
+
+.weapp-text-scale .twx-text-xl,
+.weapp-text-scale .text-xl {
+  font-size: 1.375rem;
+  line-height: 1.35;
+}
+
+.weapp-text-scale .twx-text-2xl,
+.weapp-text-scale .text-2xl {
+  font-size: 1.625rem;
+  line-height: 1.3;
+}
+
+.weapp-text-scale .chat-quick-question-chip {
+  height: 2.125rem;
+  padding: 0 0.875rem;
+}
+
+.weapp-text-scale .chat-quick-question-text {
+  font-size: 0.8125rem;
+  line-height: 1.2;
+}
+
+.weapp-text-scale .md-content {
+  font-size: 0.9375rem;
+}
+
+.weapp-text-scale .md-heading-1,
+.weapp-text-scale .md-heading-2 {
+  font-size: 1.0625rem;
+}
+
+.weapp-text-scale .md-heading-3,
+.weapp-text-scale .md-heading-4 {
+  font-size: 1rem;
+}
+
+.weapp-text-scale .md-code-block {
+  font-size: 0.8125rem;
+}
+
+.weapp-text-scale input,
+.weapp-text-scale taro-input-core,
+.weapp-text-scale textarea,
+.weapp-text-scale taro-textarea-core {
+  font-size: 0.9375rem;
+}
