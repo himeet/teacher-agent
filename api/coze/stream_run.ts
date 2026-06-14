@@ -66,7 +66,7 @@ export default async function handler(req: NodeRequest, res: NodeResponse) {
   const streamUrl = process.env.COZE_STREAM_URL || DEFAULT_COZE_STREAM_URL
 
   if (!authToken) {
-    writeJsonError(res, 500, 'Missing COZE_AUTH_TOKEN')
+    writeJsonError(res, 500, 'Missing COZE_AUTH_TOKEN. Configure it in Vercel Environment Variables.')
     return
   }
 
@@ -82,6 +82,12 @@ export default async function handler(req: NodeRequest, res: NodeResponse) {
       },
       body: requestBody,
     })
+
+    if (!upstream.ok) {
+      const text = await upstream.text().catch(() => '')
+      writeJsonError(res, upstream.status, text || `Upstream request failed (${upstream.status})`)
+      return
+    }
 
     res.statusCode = upstream.status
     res.setHeader('Content-Type', upstream.headers.get('content-type') || 'text/event-stream; charset=utf-8')
