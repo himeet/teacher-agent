@@ -34,14 +34,9 @@ function getCozeStreamUrl() {
   return COZE_PROXY_PATH
 }
 
-function isCrossOriginUrl(url: string) {
-  if (typeof window === 'undefined' || !url.startsWith('http')) return false
-  return new URL(url).origin !== window.location.origin
-}
-
-function getRequestHeaders(streamUrl: string) {
+function getRequestHeaders() {
   return {
-    'Content-Type': isCrossOriginUrl(streamUrl) ? 'text/plain;charset=UTF-8' : 'application/json',
+    'Content-Type': 'application/json',
     Accept: 'text/event-stream',
   }
 }
@@ -128,7 +123,7 @@ function streamCozeChatAnswerWithXhr(
 ) {
   return new Promise<void>((resolve, reject) => {
     const xhr = new XMLHttpRequest()
-    const headers = getRequestHeaders(streamUrl)
+    const headers = getRequestHeaders()
     let readOffset = 0
     let buffer = ''
     let settled = false
@@ -200,7 +195,7 @@ async function streamCozeChatAnswerWithFetch(
 
   const response = await fetch(streamUrl, {
     method: 'POST',
-    headers: getRequestHeaders(streamUrl),
+    headers: getRequestHeaders(),
     body: buildRequestBody(prompt),
   })
 

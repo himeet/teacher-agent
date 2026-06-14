@@ -13,6 +13,7 @@ type NodeResponse = {
 }
 
 const DEFAULT_COZE_STREAM_URL = 'https://z94mvp2yjk.coze.site/stream_run'
+const DEFAULT_COZE_AUTH_TOKEN = 'pat_GPLg5pLg7j6pyJx3Ev1VdHfBxkeTGrBynfkRz888D9WxQ4bG8lSaqhJ52mnhYdmd'
 
 export const config = {
   maxDuration: 60,
@@ -62,7 +63,7 @@ export default async function handler(req: NodeRequest, res: NodeResponse) {
     return
   }
 
-  const authToken = process.env.COZE_AUTH_TOKEN
+  const authToken = process.env.COZE_AUTH_TOKEN || DEFAULT_COZE_AUTH_TOKEN
   const streamUrl = process.env.COZE_STREAM_URL || DEFAULT_COZE_STREAM_URL
 
   if (!authToken) {
