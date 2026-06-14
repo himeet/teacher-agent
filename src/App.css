@@ -8,6 +8,11 @@ body,
   min-height: 100%;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 .taro-compat-button {
   appearance: none;
   color: inherit;
@@ -266,6 +271,81 @@ img {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.h5-text-scale {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.h5-text-scale .text-xs {
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.h5-text-scale .text-sm {
+  font-size: 0.825rem;
+  line-height: 1.45;
+}
+
+.h5-text-scale .text-base {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.h5-text-scale .text-lg {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.h5-text-scale .text-xl {
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.h5-text-scale .text-2xl {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.h5-text-scale .text-4xl {
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+
+.h5-text-scale .chat-quick-question-chip {
+  height: 1.9rem;
+  padding: 0 0.75rem;
+}
+
+.h5-text-scale .chat-quick-question-text {
+  font-size: 0.72rem;
+  line-height: 1.1;
+}
+
+.h5-text-scale .md-content {
+  font-size: 0.875rem;
+}
+
+.h5-text-scale .md-heading-1,
+.h5-text-scale .md-heading-2 {
+  font-size: 0.95rem;
+}
+
+.h5-text-scale .md-heading-3,
+.h5-text-scale .md-heading-4 {
+  font-size: 0.9rem;
+}
+
+.h5-text-scale .md-code-block {
+  font-size: 0.75rem;
+}
+
+.h5-text-scale input,
+.h5-text-scale taro-input-core,
+.h5-text-scale textarea,
+.h5-text-scale taro-textarea-core {
+  font-size: 0.875rem;
 }
 
 .weapp-text-scale {

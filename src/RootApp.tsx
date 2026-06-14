@@ -60,7 +60,7 @@ function FrontApp() {
   const isTabPage = ['home', 'chat', 'learn', 'me'].includes(currentPage as string);
   const shellClassName = isWeapp
     ? 'weapp-text-scale h-screen w-full bg-[#F4F6F8] flex flex-col overflow-hidden'
-    : 'h-screen w-full bg-neutral-200 flex justify-center items-center p-0 md:p-4';
+    : 'h5-text-scale h-screen w-full bg-neutral-200 flex justify-center items-center p-0 md:p-4';
   const appFrameClassName = isWeapp
     ? 'w-full h-screen bg-[#F4F6F8] overflow-hidden relative isolate flex flex-col'
     : 'w-full max-w-[430px] h-[100dvh] md:h-[850px] bg-[#F4F6F8] rounded-none overflow-hidden shadow-2xl relative isolate flex flex-col';
@@ -94,7 +94,7 @@ function AdminApp() {
   };
 
   return (
-    <TaroCompat.Div className={`${isWeapp ? 'weapp-text-scale ' : ''}min-h-screen bg-[#F4F6F8] flex`}>
+    <TaroCompat.Div className={`${isWeapp ? 'weapp-text-scale ' : 'h5-text-scale '}min-h-screen bg-[#F4F6F8] flex`}>
       <AdminSidebar />
       <TaroCompat.Main className="flex-1 overflow-y-auto">
         {renderPage()}
