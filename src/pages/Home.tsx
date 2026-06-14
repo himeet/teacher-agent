@@ -13,7 +13,7 @@ export default function Home() {
           count is {count}
         </TaroCompat.ButtonCompat>
         <TaroCompat.P>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/app.tsx</code> and save to test HMR
         </TaroCompat.P>
       </TaroCompat.Div>
     </>
