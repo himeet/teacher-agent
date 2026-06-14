@@ -19,7 +19,25 @@ import AdminInstructors from '@/pages/admin/AdminInstructors';
 import AdminAnalytics from '@/pages/admin/AdminAnalytics';
 import AdminSettings from '@/pages/admin/AdminSettings';
 import * as TaroCompat from '@/components/TaroCompat';
-import { isWeapp } from '@/lib/platform';
+import { isMobileWebAccess, isWeapp } from '@/lib/platform';
+
+function DesktopAccessBlocked() {
+  return (
+    <TaroCompat.Div className="min-h-screen w-full bg-[#F4F6F8] flex items-center justify-center px-6">
+      <TaroCompat.Div className="w-full max-w-[360px] rounded-lg border border-slate-200 bg-white px-6 py-8 text-center shadow-sm">
+        <TaroCompat.Div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#EAF0FF] text-[#2D5AF5]">
+          <TaroCompat.Span className="text-2xl font-semibold">!</TaroCompat.Span>
+        </TaroCompat.Div>
+        <TaroCompat.H1 className="text-xl font-semibold text-slate-900">
+          请使用移动端访问
+        </TaroCompat.H1>
+        <TaroCompat.P className="mt-3 text-sm leading-6 text-slate-500">
+          当前页面仅支持手机或平板访问，请在移动端浏览器中打开。
+        </TaroCompat.P>
+      </TaroCompat.Div>
+    </TaroCompat.Div>
+  );
+}
 
 function FrontApp() {
   const { currentPage } = useApp();
@@ -91,6 +109,10 @@ function AppContent() {
 }
 
 export default function RootApp() {
+  if (!isMobileWebAccess()) {
+    return <DesktopAccessBlocked />;
+  }
+
   return (
     <AppProvider>
       <AppContent />

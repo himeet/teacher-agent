@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 
 const COZE_PROXY_PATH = '/api/coze/stream_run'
-const COZE_PROXY_PORT = '3001'
 const COZE_STREAM_URL = 'https://z94mvp2yjk.coze.site/stream_run'
 const COZE_AUTH_TOKEN = 'pat_GPLg5pLg7j6pyJx3Ev1VdHfBxkeTGrBynfkRz888D9WxQ4bG8lSaqhJ52mnhYdmd'
 const COZE_SESSION_ID = 'Z0rZi1F9KXveFsbZ-5m_5'
@@ -32,13 +31,6 @@ function buildRequestBody(prompt: string) {
 }
 
 function getCozeStreamUrl() {
-  if (typeof window === 'undefined') return COZE_PROXY_PATH
-
-  const { protocol, hostname, port } = window.location
-  if (port && port !== COZE_PROXY_PORT) {
-    return `${protocol}//${hostname}:${COZE_PROXY_PORT}${COZE_PROXY_PATH}`
-  }
-
   return COZE_PROXY_PATH
 }
 

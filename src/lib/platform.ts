@@ -3,6 +3,22 @@ import type { CSSProperties } from 'react';
 
 export const isWeapp = process.env.TARO_ENV === 'weapp';
 
+export function isMobileWebAccess() {
+  if (isWeapp) return true;
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return true;
+
+  const userAgent = navigator.userAgent || '';
+  const maxTouchPoints = navigator.maxTouchPoints || 0;
+  const isMobileUserAgent = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Mobi/i.test(userAgent);
+  const isTabletUserAgent = /iPad|Tablet|PlayBook|Silk|Kindle|Android(?!.*Mobile)/i.test(userAgent);
+  const isIPadDesktopMode = /Macintosh/i.test(userAgent) && maxTouchPoints > 1;
+  const hasCoarsePointer = typeof window.matchMedia === 'function'
+    && window.matchMedia('(pointer: coarse)').matches;
+  const hasMobileViewport = window.innerWidth <= 768;
+
+  return isMobileUserAgent || isTabletUserAgent || isIPadDesktopMode || (hasCoarsePointer && hasMobileViewport);
+}
+
 let cachedNavTop: number | null = null;
 let cachedRightReserve: number | null = null;
 
